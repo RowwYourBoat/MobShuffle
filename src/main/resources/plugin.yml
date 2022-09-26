@@ -6,3 +6,22 @@ prefix: MobShuffle
 authors: [ Rowan ]
 description: A minigame plugin where you have to kill a certain mob a certain amount of times within a time limit to stay in the game!
 website: https://github.com/RowwYourBoat/
+
+commands:
+  start:
+    description: Starts a new game.
+    permission: mobshuffle.admin
+    usage: /start
+  forcestop:
+    description: Stops the current game.
+    permission: mobshuffle.admin
+    usage: /forcestop
+  settings:
+    description: Allows you to change settings from within the game.
+    permission: mobshuffle.admin
+    usage: /settings <get/set> <setting> <value>
+
+permissions:
+  mobshuffle.admin:
+    default: op
+    description: Gives you access to MobShuffle related commands
