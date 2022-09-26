@@ -1,0 +1,8 @@
+name: MobShuffle
+version: '${project.version}'
+main: me.rowanscripts.mobshuffle.MobShuffle
+api-version: 1.19
+prefix: MobShuffle
+authors: [ Rowan ]
+description: A minigame plugin where you have to kill a certain mob a certain amount of times within a time limit to stay in the game!
+website: https://github.com/RowwYourBoat/
