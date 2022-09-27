@@ -13,7 +13,7 @@ public class RepeatingTask {
         AtomicInteger countdown = new AtomicInteger(timeInSeconds);
         MobShuffle.bukkitScheduler.scheduleSyncRepeatingTask(MobShuffle.plugin, () -> {
             countdown.getAndDecrement();
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.GREEN + ChatColor.BOLD.toString() + countdown));
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.DARK_GREEN + ChatColor.BOLD.toString() + countdown));
         }, 0, 20);
     }
 

@@ -16,7 +16,7 @@ public class Settings {
 
     public static List<String> getDefaultMobs() {
         List<String> mobList = new ArrayList<>();
-        mobList.add("COW : 1 : 4");
+        mobList.add("COW : 1 : 7");
         mobList.add("BAT : 1 : 3");
         mobList.add("SQUID : 3 : 10");
         mobList.add("BEE : 1 : 2");
@@ -56,10 +56,11 @@ public class Settings {
         settingsFile = new File(MobShuffle.plugin.getDataFolder(), "settings.yml");
         settingsYaml = YamlConfiguration.loadConfiguration(settingsFile);
         if (!settingsFile.exists()){
-            settingsYaml.set("roundDurationInSeconds", 300);
+            settingsYaml.set("roundDurationInSeconds", 450);
             settingsYaml.set("minMobsToKill", 1);
             settingsYaml.set("maxMobsToKill", 10);
             settingsYaml.set("timeLeftCounter", true);
+            settingsYaml.set("soundEffects", true);
 
             settingsYaml.set("mobList", getDefaultMobs());
             List<String> comments = new ArrayList<>();

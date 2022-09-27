@@ -24,4 +24,4 @@ commands:
 permissions:
   mobshuffle.admin:
     default: op
-    description: Gives you access to MobShuffle related commands
+    description: Gives you access to all MobShuffle related commands

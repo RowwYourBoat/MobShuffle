@@ -27,6 +27,9 @@ public class Start implements CommandExecutor {
         }
         MobShuffle.gameInProgress = true;
 
+        MobShuffle.playersInGame.clear();
+        MobShuffle.assignments.clear();
+
         Player executor = (Player) sender;
         World world = executor.getWorld();
         List<Player> players = world.getPlayers();
@@ -34,14 +37,16 @@ public class Start implements CommandExecutor {
         Bukkit.broadcastMessage(ChatColor.DARK_GREEN + ChatColor.BOLD.toString() + "A new game has been started!");
 
         int roundDurationInSeconds = Settings.settingsYaml.getInt("roundDurationInSeconds");
+        boolean countdownEnabled = Settings.settingsYaml.getBoolean("timeLeftCounter");
         for (Player player : players){
+            MobShuffle.playersInGame.add(player.getUniqueId());
             MobShuffle.assignRandomMob(player);
-            RepeatingTask.createNewCountdownTask(player, roundDurationInSeconds);
+            if (countdownEnabled)
+                RepeatingTask.createNewCountdownTask(player, roundDurationInSeconds);
         }
 
         MobShuffle.bukkitScheduler.runTaskLater(MobShuffle.plugin, () -> {
-            MobShuffle.newRound();
-            MobShuffle.bukkitScheduler.cancelTasks(MobShuffle.plugin);
+            MobShuffle.newRound(true);
         }, roundDurationInSeconds * 20L);
         return true;
     }
