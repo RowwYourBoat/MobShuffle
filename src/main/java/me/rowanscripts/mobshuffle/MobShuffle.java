@@ -45,6 +45,8 @@ public final class MobShuffle extends JavaPlugin {
         Bukkit.getPluginCommand("settings").setExecutor(new SettingsCommand());
         Bukkit.getPluginCommand("settings").setTabCompleter(new AutoComplete());
 
+        Bukkit.getPluginCommand("reloadsettings").setExecutor(new SettingsCommand());
+
         Bukkit.getPluginManager().registerEvents(new RegisterMobKills(), MobShuffle.plugin);
 
         Settings.loadDefaultSettings();
@@ -128,6 +130,8 @@ public final class MobShuffle extends JavaPlugin {
     }
 
     public static void endGame() {
+        bukkitScheduler.cancelTasks(MobShuffle.plugin);
+        Bukkit.broadcastMessage(ChatColor.DARK_RED + ChatColor.BOLD.toString() + "The game was forcefully ended!");
         MobShuffle.gameInProgress = false;
     }
 

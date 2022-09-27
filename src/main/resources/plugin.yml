@@ -20,6 +20,10 @@ commands:
     description: Allows you to change settings from within the game.
     permission: mobshuffle.admin
     usage: /settings <get/set> <setting> <value>
+  reloadsettings:
+    description: Loads the settings of the settings.yml file into the server.
+    permission: mobshuffle.admin
+    usage: /reloadsettings
 
 permissions:
   mobshuffle.admin:
